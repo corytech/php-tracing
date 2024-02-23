@@ -1,0 +1,25 @@
+{
+  "name": "corytech/php-tracing",
+  "type": "library",
+  "description": "Tracing library",
+  "keywords": ["tracing"],
+  "license": "MIT",
+  "require": {
+    "php": ">=8.2"
+  },
+  "require-dev": {
+    "friendsofphp/php-cs-fixer": "^3.49",
+    "phpunit/phpunit": "^10.5"
+  },
+  "autoload": {
+    "psr-4": {
+      "Corytech\\Tracing\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Corytech\\Tracing\\Tests\\": "tests/"
+    }
+  },
+  "minimum-stability": "dev"
+}
