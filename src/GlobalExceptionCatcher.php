@@ -13,6 +13,9 @@ readonly class GlobalExceptionCatcher
     ) {
     }
 
+    /**
+     * @psalm-param array<string,array<string,mixed>> $additionalContexts
+     */
     public function captureException(\Throwable $e, array $additionalContexts = []): void
     {
         $this->logger
