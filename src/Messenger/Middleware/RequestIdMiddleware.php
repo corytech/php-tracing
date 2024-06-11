@@ -20,6 +20,11 @@ class RequestIdMiddleware implements MiddlewareInterface
             $envelope = $envelope->with(new RequestIdStamp(XRequestIdExtractor::getRequestId()));
         } else {
             XRequestIdExtractor::setRequestId($stamp->getRequestId());
+            \Sentry\configureScope(function (\Sentry\State\Scope $scope): void {
+                $scope->setContext('request', [
+                    'x-request-id' => XRequestIdExtractor::getRequestId(),
+                ]);
+            });
         }
 
         return $stack->next()->handle($envelope, $stack);
