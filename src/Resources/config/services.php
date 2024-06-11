@@ -1,7 +1,8 @@
 <?php
 
-namespace Symfony\Component\DependencyInjection\Loader\Configurator;
+declare(strict_types=1);
 
+namespace Symfony\Component\DependencyInjection\Loader\Configurator;
 
 use Corytech\Tracing\EventListener\TracingEventSubscriber;
 use Corytech\Tracing\GlobalExceptionCatcher;
