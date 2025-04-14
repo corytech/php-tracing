@@ -9,7 +9,7 @@ use Psr\Log\LoggerInterface;
 readonly class GlobalExceptionCatcher
 {
     public function __construct(
-        private LoggerInterface $logger
+        private LoggerInterface $logger,
     ) {
     }
 
@@ -20,7 +20,7 @@ readonly class GlobalExceptionCatcher
     {
         $this->logger
             ->warning(
-                sprintf('[GlobalExceptionCatcher] %s: %s', $e::class, $e->getMessage()),
+                \sprintf('[GlobalExceptionCatcher] %s: %s', $e::class, $e->getMessage()),
                 array_merge($additionalContexts, [
                     'exception' => $e,
                     'trace' => $e->getTraceAsString(),
