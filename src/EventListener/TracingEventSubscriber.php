@@ -13,7 +13,7 @@ class TracingEventSubscriber implements EventSubscriberInterface
 {
     public function handleControllerEvent(ControllerEvent $event): void
     {
-        \Sentry\configureScope(function (\Sentry\State\Scope $scope): void {
+        \Sentry\configureScope(static function (\Sentry\State\Scope $scope): void {
             $scope->setContext('request', [
                 'x-request-id' => XRequestIdExtractor::getRequestId(),
             ]);

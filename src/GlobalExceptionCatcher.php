@@ -27,7 +27,7 @@ readonly class GlobalExceptionCatcher
                 ])
             );
 
-        \Sentry\withScope(function (\Sentry\State\Scope $scope) use ($e, $additionalContexts) {
+        \Sentry\withScope(static function (\Sentry\State\Scope $scope) use ($e, $additionalContexts) {
             foreach ($additionalContexts as $contextName => $contextData) {
                 $scope->setContext($contextName, $contextData);
             }
